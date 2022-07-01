@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+  <section>
+    <h1 class="title"><%= title %></h1>
+    <h2 class="title" id="type">Type: <%= type %></h2>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+    <div class="container">
+      <div>
+        <p id="setup"></p>
+      </div>
+      <button id="reveal-answer-button" class='button' onclick="getAnswer()">Display Answer</button>
+      <button id="new-joke-button" class='button' onclick="getRandomJoke()">New Joke</button>
+    </div>
+  </section>
+</body>
+
+</html>
+
+<script>
+
+  var currentId;
+
+  const getRandomJoke = () => {
+    const data = fetch('/random')
+    .then(Response => Response.json())
+    .then(parsedJSON = (test) => {
+      document.getElementById("setup").innerHTML = "<p> " + test.setup + " </p>",
+      document.getElementById("type").innerHTML = "<p> " + test.type + " </p>",
+      document.getElementById("reveal-answer-button").innerHTML = "<p> Display Answer </p>"
+      currentId = test.id;
+    })
+  }
+
+  const getAnswer = () => {
+    const data = fetch('/joke/' + currentId)
+    .then(Response => Response.json())
+    .then(parsedJSON = (test) => {
+      document.getElementById("reveal-answer-button").innerHTML = "<p> " + test.punchline + " </p>"
+    })
+  }
+</script>

@@ -1,0 +1,7 @@
+.vs
+
+# npm
+node_modules
+
+# Database
+jokes.db
