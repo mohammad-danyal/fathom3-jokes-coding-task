@@ -24,20 +24,18 @@ router.get('/', function(req, res, next) {
   })
 });
 
+/* GET random joke. */
 router.get('/randomJoke', async function(req, res, next) {
   const joke = db.all("SELECT * FROM jokes ORDER BY RANDOM() LIMIT 1;",(err, row)=>{ 
     res.json(row[0])
   })
 })
 
+/* GET joke by id. */
 router.get('/joke/:id', async function(req, res, next) {
   const joke = db.all("SELECT * FROM jokes WHERE id = " + req.params.id + " LIMIT 1;",(err, row)=>{ 
     res.json(row[0])
   })
 })
-
-// db.close((err) => {
-//   if (err) return console.error(err.message);
-// })
 
 module.exports = router;
