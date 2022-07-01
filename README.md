@@ -16,7 +16,7 @@ A joke generating web appplication written in EJS (front end) and Express.js (ba
 - Application can be run with:
 
 ```bash
-   $env:DEBUG='fathom3-jokes-coding-task:*'; npm start#
+   npm start
 ```
 The application will then be available at http://localhost:3000/.
 
