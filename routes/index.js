@@ -14,7 +14,7 @@ db.run('CREATE TABLE if not exists jokes(id INTEGER PRIMARY KEY, type STRING, se
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Random Jokes', type: 'unknown', setup: 'unknown'});
+  res.render('index', {title: 'Random Jokes', type: 'loading...', setup: 'loading...'});
   fetch('https://raw.githubusercontent.com/15Dkatz/official_joke_api/master/jokes/index.json')
   .then((response) => response.json())
   .then((data) => {
@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
   })
 });
 
-router.get('/random', async function(req, res, next) {
+router.get('/randomJoke', async function(req, res, next) {
   const joke = db.all("SELECT * FROM jokes ORDER BY RANDOM() LIMIT 1;",(err, row)=>{ 
     res.json(row[0])
   })

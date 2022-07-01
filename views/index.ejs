@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<body onload="getRandomJoke()">
   <section>
     <h1 class="title"><%= title %></h1>
-    <h2 class="title" id="type">Type: <%= type %></h2>
+    <h2 class="title" id="type"><%= type %></h2>
     <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
     <div class="container">
       <div>
@@ -23,11 +23,11 @@
   var currentId;
 
   const getRandomJoke = () => {
-    const data = fetch('/random')
+    const data = fetch('/randomJoke')
     .then(Response => Response.json())
     .then(parsedJSON = (test) => {
       document.getElementById("setup").innerHTML = "<p> " + test.setup + " </p>",
-      document.getElementById("type").innerHTML = "<p> " + test.type + " </p>",
+      document.getElementById("type").innerHTML = "<p> Type: " + test.type + " </p>",
       document.getElementById("reveal-answer-button").innerHTML = "<p> Display Answer </p>"
       currentId = test.id;
     })
