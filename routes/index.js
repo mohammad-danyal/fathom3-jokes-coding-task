@@ -10,7 +10,7 @@ const db = new sqlite3.Database('./jokes.db', sqlite3.OPEN_READWRITE, (err)=> {
   console.log("connection successful")
 })
 
-db.run('CREATE TABLE jokes(id INTEGER PRIMARY KEY, type STRING, setup STRING, punchline STRING)');
+db.run('CREATE TABLE if not exists jokes(id INTEGER PRIMARY KEY, type STRING, setup STRING, punchline STRING)');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
