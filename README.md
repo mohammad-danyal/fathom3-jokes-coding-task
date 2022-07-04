@@ -18,7 +18,7 @@ SQLite3 v5.0.8 has been used for the implementation of a local database which st
 - Application can be run with:
 
 ```bash
-   $env:DEBUG='fathom3-jokes-coding-task:*'; npm start#
+   npm start
 ```
 The application will then be available at http://localhost:3000/.
 
