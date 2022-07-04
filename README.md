@@ -3,6 +3,8 @@
 
 A joke generating web appplication written in EJS (front end) and Express.js (back end). 
 
+SQLite3 has been used for the database storing all the jokes.
+
 ## Installation / Setup
 
 - Create a local database file named `jokes.db` in the root directory.
@@ -16,7 +18,7 @@ A joke generating web appplication written in EJS (front end) and Express.js (ba
 - Application can be run with:
 
 ```bash
-  npm start
+   $env:DEBUG='fathom3-jokes-coding-task:*'; npm start#
 ```
 The application will then be available at http://localhost:3000/.
 
