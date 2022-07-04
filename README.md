@@ -3,7 +3,7 @@
 
 A joke generating web appplication written in EJS (front end) and Express.js (back end). 
 
-SQLite3 v5.0.8 has been used for the implementation of the database which stores all the jokes.
+SQLite3 v5.0.8 has been used for the implementation of a local database which stores all the jokes.
 
 ## Installation / Setup
 
